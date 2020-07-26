@@ -1,0 +1,23 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # 是否根据服务名自动注册服务
+          lower-case-service-id: true
+      routes:
+        - id: hello-ds
+          uri: lb://service-consumer-feign
+          predicates:
+            - Path=/hello/**  # 匹配 "/hello/" 开头的 URL
+          filters:
+            - StripPrefix=1 # 这会去掉"/hello/"前缀
+
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
