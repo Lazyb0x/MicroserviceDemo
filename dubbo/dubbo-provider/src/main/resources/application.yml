@@ -1,0 +1,19 @@
+##服务器端口号
+server:
+  port: 8083
+##dubbo 注册到注册中心的名称
+dubbo:
+  application:
+    name: dubbo-provider
+  ##采用协议方式和端口号
+  protocol:
+    ## 常用协议：dubbo,http,webService等
+    name: dubbo
+    ## 发布dubbo端口号为20880
+    port: 20880
+  registry:
+    ## dubbo注册中心地址 zookeeper地址
+    address: zookeeper://127.0.0.1:2181
+#  scan:
+#    ## 实现类扫包范围(可以省略，dubbo会自动扫 带了@Service的类)
+#    base-packages: com.baba.wlb.member.impl.MemberServiceImpl

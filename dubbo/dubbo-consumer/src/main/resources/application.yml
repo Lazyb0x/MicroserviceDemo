@@ -1,0 +1,12 @@
+##服务器端口号
+server:
+  port: 8084
+##dubbo 注册到注册中心的名称
+dubbo:
+  application:
+    name: dubbo-consumer
+  registry:
+    ## dubbo注册中心地址 zookeeper地址
+    address: zookeeper://127.0.0.1:2181
+  consumer:
+    timeout:
